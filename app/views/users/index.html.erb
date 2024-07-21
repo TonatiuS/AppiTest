@@ -1,30 +1,54 @@
-<!-- app/views/users/index.html.erb -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Usuarios</title>
+  <title>Employee List</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .animate-return {
+      transition: transform 0.3s ease;
+    }
+    .animate-return:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
-<body class="bg-gray-100 p-6">
-  <div class="container mx-auto">
-    <h1 class="text-2xl font-bold mb-4">Lista de Usuarios</h1>
+<body class="bg-gray-900 text-gray-200">
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-4xl  font-bold text-white">Employee List</h1>
+    </div>
+      <a href="/" class="text-gray-300 left-4  hover:text-white transition-transform transform animate-return">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7l-7 7 7 7M21 7l-7 7 7 7"></path>
+        </svg>
+      </a>
+
     <% if flash[:error] %>
-      <div class="bg-red-500 text-white p-4 mb-4 rounded">
+      <div class="bg-red-600 text-white p-4 rounded-lg mb-6">
         <%= flash[:error] %>
       </div>
     <% end %>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <% @users.each do |user| %>
-        <div class="bg-white p-4 rounded-lg shadow">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 relative group hover:bg-gray-700 transition-colors">
+          <div class="flex justify-center mb-4">
+            <img src="<%= 'https://e7.pngegg.com/pngimages/214/954/png-clipart-simpsons-simpsons.png' %>" alt="<%= "#{user['first_name']} #{user['last_name']}" %>" class="w-34 h-24 rounded-full border-4 border-gray-600">
+          </div>
           <h2 class="text-xl font-semibold mb-2"><%= "#{user['first_name']} #{user['last_name']}" %></h2>
-          <p class="text-gray-700"><strong>Email:</strong> <%= user['email'] %></p>
-          <p class="text-gray-700"><strong>Fecha de Nacimiento:</strong> <%= user['date_of_birth'] %></p>
-          <p class="text-gray-700"><strong>Dirección:</strong> <%= user['address'] %></p>
-          <p class="text-gray-700"><strong>País:</strong> <%= user['country'] %></p>
-          <p class="text-gray-700"><strong>Bio:</strong> <%= user['bio'] %></p>
-          <p class="text-gray-700"><strong>Rating:</strong> <%= user['rating'] %></p>
+          <p class="text-gray-400 mb-1"><strong>Email:</strong> <%= user['email'] %></p>
+          <p class="text-gray-400 mb-1"><strong>Fecha de Nacimiento:</strong> <%= user['date_of_birth'] %></p>
+          <p class="text-gray-400 mb-1"><strong>Dirección:</strong> <%= user['address'] %></p>
+          <p class="text-gray-400 mb-1"><strong>País:</strong> <%= user['country'] %></p>
+          <p class="text-gray-400 mb-1"><strong>Bio:</strong> <%= user['bio'][0] %></p>
+          <p class="text-gray-400 mb-1"><strong>Rating:</strong> <%= user['rating'] %></p>
+          <a href="/errors%>" class="absolute bottom-4 right-4 text-gray-400 group-hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+            </svg>
+          </a>
         </div>
       <% end %>
     </div>

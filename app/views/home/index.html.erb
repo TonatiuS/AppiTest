@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Test Tona</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .card {
+      transition: transform 0.3s ease-in-out;
+    }
+    .card:hover {
+      transform: scale(1.35);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-start h-screen p-12">
+  <h1 class="text-2xl font-bold mb-6">Menu Test Tona</h1>
+  <div class="container mx-auto flex justify-center">
+    <div class="carousel flex overflow-x-auto py-8 space-x-6">
+      <a href="/users" class="card bg-blue-500 text-white p-6 rounded-lg shadow-lg flex-shrink-0 w-64 h-96 text-center flex flex-col justify-center items-center">
+        <h2 class="text-2xl font-bold">Employee</h2>
+      </a>
+      <a href="/error" class="card bg-green-500 text-white p-6 rounded-lg shadow-lg flex-shrink-0 w-64 h-96 text-center flex flex-col justify-center items-center">
+        <h2 class="text-2xl font-bold">Sector</h2>
+      </a>
+      <a href="/error" class="card bg-yellow-500  text-white p-6 rounded-lg shadow-lg flex-shrink-0 w-64 h-96 text-center flex flex-col justify-center items-center">
+        <h2 class="text-2xl font-bold">Location</h2>
+      </a>
+      <a href="/error" class="card bg-red-500 text-white p-6 rounded-lg shadow-lg flex-shrink-0 w-64 h-96 text-center flex flex-col justify-center items-center">
+        <h2 class="text-2xl font-bold">Settings</h2>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

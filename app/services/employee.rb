@@ -1,15 +1,11 @@
 # app/services/employee_service.rb
-require 'faraday'
-require 'json'
-require_relative 'authentication_service'
-
-class EmployeeService
+class Employee
   API_URL = 'https://beta.01cxhdz3a8jnmapv.com/api/v1/assignment'
 
   class APIError < StandardError; end
   class ConnectionError < APIError; end
 
-  def initialize(auth_service: AuthenticationService.new)
+  def initialize(auth_service: Authentication.new)
     @auth_service = auth_service
   end
 
