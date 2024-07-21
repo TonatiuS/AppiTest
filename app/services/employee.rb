@@ -25,7 +25,7 @@ class Employee
       ssl: { verify: false },
       headers: {
         'Content-Type' => 'application/json',
-        'Authorization' => @auth_service.auth_header
+        'Authorization' => @auth_service.acces_auth_header
       }
     )
   end

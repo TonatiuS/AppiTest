@@ -31,7 +31,7 @@ class Authentication
     raise ConnectionError, "Error al autenticarse: #{e.message}"
   end
 
-  def auth_header
+  def acces_auth_header
     authenticate unless @token && @auth_header
     "#{@auth_header} #{@token}"
   end
