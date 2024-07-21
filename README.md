@@ -18,7 +18,8 @@ La aplicación consta de dos servicios principales:
    git clone https://github.com/tu_usuario/tu_repositorio.git
 2. **Instala Dependencias**
    ```bash
-  bundle install
+   bundle install
+ 
 3. **Ejecuta el Servidor**
    ```bash
    rails server
